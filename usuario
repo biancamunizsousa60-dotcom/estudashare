@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário - EstudaShare</title>
+    <style>
+        /* Base e Containers */
+        body { font-family: sans-serif; margin: 0; background-color: #fff; color: #333; }
+        .bg-gray { background-color: #f2f2f2; padding: 40px 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header (Reaproveitado) */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #fff; }
+        .logo { font-weight: bold; font-size: 20px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 14px; }
+
+        /* Seção Superior (Cards) */
+        .profile-top { display: flex; gap: 25px; justify-content: center; }
+        .card-user, .card-menu { 
+            background: white; 
+            border-radius: 15px; 
+            padding: 30px; 
+            height: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Card Esquerdo: Avatar */
+        .card-user { flex: 1; text-align: center; }
+        .avatar-circle { 
+            width: 140px; height: 140px; background: #ccc; 
+            border-radius: 50%; margin: 0 auto 20px; 
+            background-image: url('https://via.placeholder.com/140'); /* Substituir por foto */
+            background-size: cover;
+        }
+        .card-user h2 { font-size: 18px; margin-bottom: 5px; }
+        .card-user span { font-size: 13px; color: #999; }
+
+        /* Card Direito: Menu */
+        .card-menu { flex: 1.5; display: flex; flex-direction: column; justify-content: center; }
+        .menu-item { 
+            text-decoration: none; color: #000; font-weight: bold; 
+            margin: 6px 0; font-size: 16px; 
+        }
+        .menu-item:hover { color: #666; }
+
+        /* Seção Sobre Mim */
+        .sobre-mim { padding: 40px 0; text-align: center; }
+        .sobre-mim h3 { margin-bottom: 15px; font-size: 18px; }
+        .info-academic { font-size: 15px; margin-bottom: 30px; }
+        
+        .bio-text { 
+            text-align: justify; line-height: 1.6; font-size: 14px; 
+            max-width: 800px; margin: 0 auto; color: #444;
+        }
+
+        .edit-btn { text-align: right; margin-top: 20px; font-weight: bold; cursor: pointer; }
+
+        /* Estatísticas */
+        .stats { margin-top: 40px; text-align: left; border-top: 1px solid #eee; pt: 20px; }
+        .stats h4 { margin-bottom: 15px; }
+        .stats-list { list-style: none; padding: 0; font-size: 14px; line-height: 2; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧠 EstudaShare</div>
+        <nav>
+            <a href="#">Início</a> <a href="#">Explorar</a> <a href="#">Suporte</a>
+            <a href="#">Entrar</a> <a href="#" style="font-weight: bold;">Cadastrar-se</a>
+        </nav>
+    </header>
+
+    <div class="bg-gray">
+        <div class="container profile-top">
+            <div class="card-user">
+                <div class="avatar-circle"></div>
+                <h2>Olá Thiago "Dev" Silva!</h2>
+                <span>@ThiagoDevS123</span>
+            </div>
+
+            <div class="card-menu">
+                <a href="#" class="menu-item">Meu perfil →</a>
+                <a href="#" class="menu-item">Configurações →</a>
+                <a href="#" class="menu-item">Minha biblioteca →</a>
+                <a href="#" class="menu-item">Meus comentários →</a>
+                <a href="#" class="menu-item">Mensagens →</a>
+                <a href="#" class="menu-item">Atividade →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="sobre-mim">
+            <h3>Sobre mim</h3>
+            <p class="info-academic"><strong>Curso:</strong> Engenharia de Computação | <strong>Nível:</strong> 5º Semestre</p>
+            
+            <div class="bio-text">
+                Fala, galera! Sou o Thiago e meu objetivo aqui no EstudaShare é desmistificar a programação. Acredito que ninguém deveria sofrer tentando entender algoritmos em livros de 500 páginas. Meus materiais são focados em visualização lógica: transformo códigos complexos em fluxogramas coloridos e mapas mentais...
+            </div>
+            
+            <div class="edit-btn">Editar ✎</div>
+
+            <div class="stats">
+                <h4>Estatísticas do Thiago no EstudaShare:</h4>
+                <ul class="stats-list">
+                    <li>• <strong>Materiais Enviados:</strong> 24 📄</li>
+                    <li>• <strong>Downloads Realizados:</strong> 152 📥</li>
+                    <li>• <strong>Avaliação Média:</strong> ⭐⭐⭐⭐⭐ (4.9)</li>
+                    <li>• <strong>Tags Favoritas:</strong> #Python, #Logica, #Hardware, #MapasMentais</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+<footer>
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>Namedly</h3> <p>Descriptive line about what your company does.</p>
+            <div class="social-icons">🪩 🟦 𝕏</div>
+        </div>
+        <div class="footer-links">
+            <div>
+                <h4>Features</h4>
+                <ul><li>Core features</li><li>Pro experience</li><li>Integrations</li></ul>
+            </div>
+            <div>
+                <h4>Learn more</h4>
+                <ul><li>Blog</li><li>Case studies</li><li>Best practices</li></ul>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul><li>Contact</li><li>Support</li><li>Legal</li></ul>
+            </div>
+        </div>
+    </div>
+</footer>
