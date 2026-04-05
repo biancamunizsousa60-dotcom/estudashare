@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstudaShare - Protótipo</title>
+    <style>
+        /* Reset básico */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: #f0f0f0; color: #333; }
+
+        /* Header / Navbar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: #fff;
+        }
+        .logo { font-weight: bold; font-size: 24px; color: #444; }
+        nav a { margin: 0 15px; text-decoration: none; color: #666; font-size: 14px; }
+
+        /* Barra de Pesquisa */
+        .search-container {
+            background-color: #e0e0e0;
+            padding: 15px;
+            text-align: center;
+        }
+        .search-bar {
+            width: 50%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #000;
+            background: #000;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 50px 10%;
+            background: #fff;
+            border-bottom: 2px solid #00aaff;
+        }
+        .hero-text { max-width: 400px; }
+        .hero-text h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero-text p { font-size: 18px; color: #777; margin-bottom: 30px; }
+        .btn-compartilhar {
+            background: #000;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .hero-image img { width: 400px; border-radius: 10px; }
+
+        /* Card "Como funciona" */
+        .info-section {
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            display: flex;
+            width: 700px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .card-icon { width: 150px; margin-right: 30px; }
+        .card-content h3 { margin-bottom: 15px; font-size: 20px; }
+        .card-content p { font-size: 14px; color: #555; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧠 EstudaShare</div>
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Explorar</a>
+            <a href="#">Suporte</a>
+            <a href="#">Entrar</a>
+            <a href="#" style="font-weight: bold;">Cadastrar-se</a>
+        </nav>
+    </header>
+
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Pesquisar...">
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Compartilhe seu conhecimento.</h1>
+            <p>Faça parte da nossa comunidade.</p>
+            <a href="#" class="btn-compartilhar">compartilhar</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/400x300?text=Logo+EstudaShare" alt="Ilustração Cérebro">
+        </div>
+    </section>
+
+    <section class="info-section">
+        <div class="card">
+            <div class="card-icon">
+                <img src="https://via.placeholder.com/100" alt="Ícone">
+            </div>
+            <div class="card-content">
+                <h3>Como funciona?</h3>
+                <p>Organize seu conhecimento em um mapa mental, com links e arquivos de apoio, imagens, vídeos e instruções. Compartilhe com a comunidade. Você escolhe acesso livre ou por taxa.</p>
+                <br>
+                <a href="#" style="color: black; font-weight: bold; text-decoration: none;">Mais →</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+<section class="explorar">
+        <h2>Explorar</h2>
+        <div class="grid-mapas">
+            <div class="card-mapa">
+                <img src="https://via.placeholder.com/250x300" alt="Mapa Cardiovascular">
+                <h3>Sistema Cardiovascular</h3>
+                <span class="tag livre">Livre</span>
+                <p>"Oi, pessoal! Subi meu mapa de Sistema Cardiovascular..."</p>
+                <div class="autor">Por: <strong>@anab.moraes</strong><br><span>Medicina</span></div>
+            </div>
+            <div class="card-mapa">
+                <img src="https://via.placeholder.com/250x300" alt="Estrutura de Dados">
+                <h3>Estruturas de Dados</h3>
+                <span class="tag preco">R$3,99</span>
+                <p>"Galera, compartilhei um mapa sobre Estruturas de Dados..."</p>
+                <div class="autor">Por: <strong>@jujucria</strong><br><span>Ciências da Computação</span></div>
+            </div>
+            <div class="card-mapa">
+                <img src="https://via.placeholder.com/250x300" alt="Processo Penal">
+                <h3>Processo Penal</h3>
+                <span class="tag preco">R$5,99</span>
+                <p>"Acabei de postar o passo a passo do Processo Penal..."</p>
+                <div class="autor">Por: <strong>@lari.cria</strong><br><span>Direito/Concurso</span></div>
+            </div>
+        </div>
+        <div class="mais-link">Mais →</div>
+    </section>
+
+    <section class="forum">
+        <h2>Forum</h2>
+        <p class="subtitulo">Confira o que a comunidade está falando.</p>
+        <div class="container-depoimentos">
+            <div class="card-depoimento">
+                <p>"O EstudaShare salvou meu semestre! Encontrei mapas mentais incríveis..."</p>
+                <div class="user-info">
+                    <div class="avatar orange"></div>
+                    <div><strong>Mariana S.</strong><br><span>Medicina</span></div>
+                </div>
+            </div>
+            <div class="card-depoimento">
+                <p>"O que eu mais gosto é a colaboração. Às vezes posto um mapa e recebo sugestões..."</p>
+                <div class="user-info">
+                    <div class="avatar blue"></div>
+                    <div><strong>Beatriz F.</strong><br><span>Concurseira</span></div>
+                </div>
+            </div>
+            <div class="card-depoimento">
+                <p>"Finalmente um lugar centralizado para trocar materiais de qualidade..."</p>
+                <div class="user-info">
+                    <div class="avatar green"></div>
+                    <div><strong>Lucas R.</strong><br><span>Ciências da Computação</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="mais-link">Mais →</div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Namedly</h3>
+                <p>Descriptive line about what your company does.</p>
+                <div class="social-icons">🪩 🟦 𝕏</div>
+            </div>
+            <div class="footer-links">
+                <div>
+                    <h4>Features</h4>
+                    <ul><li>Core features</li><li>Pro experience</li><li>Integrations</li></ul>
+                </div>
+                <div>
+                    <h4>Learn more</h4>
+                    <ul><li>Blog</li><li>Case studies</li><li>Best practices</li></ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul><li>Contact</li><li>Support</li><li>Legal</li></ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Estilos Adicionais */
+        h2 { text-align: center; font-size: 32px; margin: 50px 0 30px; }
+        .subtitulo { text-align: center; color: #666; margin-bottom: 40px; }
+
+        /* Estilo Explorar */
+        .explorar { padding: 0 10%; }
+        .grid-mapas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .card-mapa img { width: 100%; border-radius: 15px; border: 1px solid #ddd; }
+        .card-mapa h3 { margin: 15px 0 10px; font-size: 18px; }
+        .tag { padding: 5px 15px; border-radius: 8px; font-weight: bold; font-size: 12px; color: white; display: inline-block; margin-bottom: 10px; }
+        .livre { background-color: #6bc27d; }
+        .preco { background-color: #ff9800; }
+        .card-mapa p { font-size: 13px; color: #666; line-height: 1.4; height: 60px; overflow: hidden; }
+        .autor { margin-top: 15px; font-size: 13px; }
+        .autor span { color: #999; }
+
+        /* Estilo Forum */
+        .forum { background-color: #eeeeee; padding: 60px 10%; margin-top: 50px; }
+        .container-depoimentos { display: flex; gap: 20px; justify-content: center; }
+        .card-depoimento { background: white; padding: 25px; border-radius: 15px; flex: 1; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .user-info { display: flex; align-items: center; margin-top: 20px; gap: 10px; font-size: 12px; }
+        .avatar { width: 35px; height: 35px; border-radius: 50%; }
+        .orange { background: #ffe0b2; } .blue { background: #e3f2fd; } .green { background: #e8f5e9; }
+
+        .mais-link { text-align: center; margin-top: 30px; font-weight: bold; cursor: pointer; }
+
+        /* Estilo Footer */
+        footer { padding: 60px 10%; border-top: 1px solid #eee; background: white; }
+        .footer-content { display: flex; justify-content: space-between; }
+        .footer-links { display: flex; gap: 50px; }
+        .footer-links h4 { margin-bottom: 15px; font-size: 14px; }
+        .footer-links ul { list-style: none; font-size: 13px; color: #666; line-height: 2; }
+        .social-icons { margin-top: 20px; font-size: 20px; }
+    </style>
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil do Usuário - EstudaShare</title>
+    <style>
+        /* Base e Containers */
+        body { font-family: sans-serif; margin: 0; background-color: #fff; color: #333; }
+        .bg-gray { background-color: #f2f2f2; padding: 40px 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header (Reaproveitado) */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #fff; }
+        .logo { font-weight: bold; font-size: 20px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 14px; }
+
+        /* Seção Superior (Cards) */
+        .profile-top { display: flex; gap: 25px; justify-content: center; }
+        .card-user, .card-menu { 
+            background: white; 
+            border-radius: 15px; 
+            padding: 30px; 
+            height: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        
+        /* Card Esquerdo: Avatar */
+        .card-user { flex: 1; text-align: center; }
+        .avatar-circle { 
+            width: 140px; height: 140px; background: #ccc; 
+            border-radius: 50%; margin: 0 auto 20px; 
+            background-image: url('https://via.placeholder.com/140'); /* Substituir por foto */
+            background-size: cover;
+        }
+        .card-user h2 { font-size: 18px; margin-bottom: 5px; }
+        .card-user span { font-size: 13px; color: #999; }
+
+        /* Card Direito: Menu */
+        .card-menu { flex: 1.5; display: flex; flex-direction: column; justify-content: center; }
+        .menu-item { 
+            text-decoration: none; color: #000; font-weight: bold; 
+            margin: 6px 0; font-size: 16px; 
+        }
+        .menu-item:hover { color: #666; }
+
+        /* Seção Sobre Mim */
+        .sobre-mim { padding: 40px 0; text-align: center; }
+        .sobre-mim h3 { margin-bottom: 15px; font-size: 18px; }
+        .info-academic { font-size: 15px; margin-bottom: 30px; }
+        
+        .bio-text { 
+            text-align: justify; line-height: 1.6; font-size: 14px; 
+            max-width: 800px; margin: 0 auto; color: #444;
+        }
+
+        .edit-btn { text-align: right; margin-top: 20px; font-weight: bold; cursor: pointer; }
+
+        /* Estatísticas */
+        .stats { margin-top: 40px; text-align: left; border-top: 1px solid #eee; pt: 20px; }
+        .stats h4 { margin-bottom: 15px; }
+        .stats-list { list-style: none; padding: 0; font-size: 14px; line-height: 2; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🧠 EstudaShare</div>
+        <nav>
+            <a href="#">Início</a> <a href="#">Explorar</a> <a href="#">Suporte</a>
+            <a href="#">Entrar</a> <a href="#" style="font-weight: bold;">Cadastrar-se</a>
+        </nav>
+    </header>
+
+    <div class="bg-gray">
+        <div class="container profile-top">
+            <div class="card-user">
+                <div class="avatar-circle"></div>
+                <h2>Olá Thiago "Dev" Silva!</h2>
+                <span>@ThiagoDevS123</span>
+            </div>
+
+            <div class="card-menu">
+                <a href="#" class="menu-item">Meu perfil →</a>
+                <a href="#" class="menu-item">Configurações →</a>
+                <a href="#" class="menu-item">Minha biblioteca →</a>
+                <a href="#" class="menu-item">Meus comentários →</a>
+                <a href="#" class="menu-item">Mensagens →</a>
+                <a href="#" class="menu-item">Atividade →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="sobre-mim">
+            <h3>Sobre mim</h3>
+            <p class="info-academic"><strong>Curso:</strong> Engenharia de Computação | <strong>Nível:</strong> 5º Semestre</p>
+            
+            <div class="bio-text">
+                Fala, galera! Sou o Thiago e meu objetivo aqui no EstudaShare é desmistificar a programação. Acredito que ninguém deveria sofrer tentando entender algoritmos em livros de 500 páginas. Meus materiais são focados em visualização lógica: transformo códigos complexos em fluxogramas coloridos e mapas mentais...
+            </div>
+            
+            <div class="edit-btn">Editar ✎</div>
+
+            <div class="stats">
+                <h4>Estatísticas do Thiago no EstudaShare:</h4>
+                <ul class="stats-list">
+                    <li>• <strong>Materiais Enviados:</strong> 24 📄</li>
+                    <li>• <strong>Downloads Realizados:</strong> 152 📥</li>
+                    <li>• <strong>Avaliação Média:</strong> ⭐⭐⭐⭐⭐ (4.9)</li>
+                    <li>• <strong>Tags Favoritas:</strong> #Python, #Logica, #Hardware, #MapasMentais</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload de Material - EstudaShare</title>
+    <style>
+        /* Base e Layout */
+        body { font-family: sans-serif; margin: 0; background-color: #fff; }
+        .upload-section { background-color: #eeeeee; padding: 60px 0; min-height: 400px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        /* Estilo do Card de Upload de Imagem */
+        .image-upload-box {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .image-upload-box img { width: 80px; opacity: 0.6; }
+
+        /* Estilo do Formulário */
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            width: 120px;
+            font-weight: bold;
+            font-size: 16px;
+            padding-top: 10px;
+        }
+        .input-field {
+            flex: 1;
+            background-color: #d9d9d9;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        textarea.input-field {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Linha do Valor/Preço */
+        .valor-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .input-small { width: 150px; }
+        .checkbox-group { display: flex; align-items: center; gap: 8px; font-weight: bold; }
+        .checkbox-group input { width: 18px; height: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <section class="upload-section">
+        <div class="container">
+            
+            <div class="image-upload-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="Add Image">
+            </div>
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" class="input-field">
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea class="input-field"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Valor</label>
+                <div class="valor-container">
+                    <input type="text" class="input-field input-small">
+                    <label class="checkbox-group">
+                        <input type="checkbox"> Livre
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </body>
+</html>
