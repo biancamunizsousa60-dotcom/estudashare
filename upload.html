@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload de Material - EstudaShare</title>
+    <style>
+        /* Base e Layout */
+        body { font-family: sans-serif; margin: 0; background-color: #fff; }
+        .upload-section { background-color: #eeeeee; padding: 60px 0; min-height: 400px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+
+        /* Estilo do Card de Upload de Imagem */
+        .image-upload-box {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .image-upload-box img { width: 80px; opacity: 0.6; }
+
+        /* Estilo do Formulário */
+        .form-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .form-group label {
+            width: 120px;
+            font-weight: bold;
+            font-size: 16px;
+            padding-top: 10px;
+        }
+        .input-field {
+            flex: 1;
+            background-color: #d9d9d9;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        textarea.input-field {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Linha do Valor/Preço */
+        .valor-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .input-small { width: 150px; }
+        .checkbox-group { display: flex; align-items: center; gap: 8px; font-weight: bold; }
+        .checkbox-group input { width: 18px; height: 18px; }
+
+    </style>
+</head>
+<body>
+
+    <section class="upload-section">
+        <div class="container">
+            
+            <div class="image-upload-box">
+                <img src="https://cdn-icons-png.flaticon.com/512/126/126477.png" alt="Add Image">
+            </div>
+
+            <div class="form-group">
+                <label>Título</label>
+                <input type="text" class="input-field">
+            </div>
+
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea class="input-field"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Valor</label>
+                <div class="valor-container">
+                    <input type="text" class="input-field input-small">
+                    <label class="checkbox-group">
+                        <input type="checkbox"> Livre
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    </body>
+</html>
