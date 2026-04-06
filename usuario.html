@@ -3,80 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EstudaShare - Plataforma de Conhecimento</title>
+    <title>Perfil - EstudaShare</title>
     <style>
-        /* CONFIGURAÇÕES GERAIS */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #fff; color: #333; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        /* Reset e Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background-color: #fff; color: #333; }
 
-        /* HEADER */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Header (Igual ao das outras telas) */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; border-bottom: 1px solid #eee; }
+        .logo { font-weight: bold; font-size: 20px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 13px; }
+        .social-icons { display: flex; gap: 15px; margin: 0 30px; color: #666; }
+
+        /* Seção Cinza Superior */
+        .profile-header-bg { background-color: #f2f2f2; padding: 50px 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        
+        .flex-cards { display: flex; gap: 30px; justify-content: center; align-items: stretch; }
+
+        /* Card de Identificação */
+        .card-id { 
+            background: white; flex: 1; border-radius: 15px; padding: 40px 20px; 
+            text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
-        .logo { font-size: 22px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-        nav a { margin: 0 15px; font-size: 14px; color: #666; transition: 0.3s; }
-        nav a:hover { color: #000; }
-        .social-nav { display: flex; gap: 15px; align-items: center; margin: 0 20px; }
+        .avatar-placeholder { 
+            width: 160px; height: 160px; background: #ddd; border-radius: 50%; 
+            margin: 0 auto 20px; background-image: url('https://via.placeholder.com/160'); background-size: cover;
+        }
+        .card-id h2 { font-size: 20px; margin-bottom: 5px; }
+        .card-id span { color: #999; font-size: 14px; }
 
-        /* BARRA DE PESQUISA */
-        .search-section { background-color: #f4f4f4; padding: 20px 0; text-align: center; }
-        .search-bar {
-            width: 60%;
-            padding: 12px 25px;
-            border-radius: 30px;
-            border: 2px solid #000;
-            background: #000;
-            color: #fff;
-            font-size: 16px;
+        /* Card de Navegação */
+        .card-nav { 
+            background: white; flex: 1.3; border-radius: 15px; padding: 30px 50px; 
+            display: flex; flex-direction: column; justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .nav-link { 
+            text-decoration: none; color: #000; font-weight: bold; 
+            font-size: 17px; margin: 8px 0; display: block; 
+        }
+        .nav-link:hover { opacity: 0.7; }
+
+        /* Seção Sobre Mim */
+        .sobre-mim-section { padding: 50px 0; }
+        .sobre-mim-section h3 { text-align: center; font-size: 18px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .academic-info { text-align: center; font-size: 16px; margin-bottom: 40px; }
+        
+        .bio-text { 
+            max-width: 850px; margin: 0 auto; text-align: justify; 
+            line-height: 1.5; font-size: 15px; color: #333; 
         }
 
-        /* HERO SECTION */
-        .hero { display: flex; align-items: center; padding: 60px 0; gap: 50px; border-bottom: 3px solid #00aaff; }
-        .hero-content { flex: 1; }
-        .hero-content h1 { font-size: 45px; line-height: 1.1; margin-bottom: 20px; }
-        .hero-content p { font-size: 18px; color: #666; margin-bottom: 30px; }
-        .btn-main { background: #000; color: #fff; padding: 12px 30px; border-radius: 8px; font-weight: bold; }
-        .hero-image { flex: 1; text-align: right; }
-        .hero-image img { width: 100%; max-width: 450px; border-radius: 15px; }
+        .edit-container { text-align: right; max-width: 850px; margin: 20px auto 40px; }
+        .btn-editar { font-weight: bold; font-size: 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
 
-        /* GRID EXPLORAR */
-        .section-title { text-align: center; font-size: 32px; margin: 60px 0 40px; }
-        .grid-mapas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding-bottom: 40px; }
-        .card-mapa { background: #fff; border-radius: 15px; transition: transform 0.3s; }
-        .card-mapa:hover { transform: translateY(-5px); }
-        .card-mapa img { width: 100%; border-radius: 15px; border: 1px solid #eee; height: 350px; object-fit: cover; }
-        .tag { display: inline-block; padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: bold; margin: 10px 0; color: #fff; }
-        .tag.livre { background: #6bc27d; }
-        .tag.preco { background: #ff9800; }
-        .autor-info { margin-top: 15px; font-size: 13px; border-top: 1px solid #eee; pt: 10px; }
+        /* Estatísticas */
+        .stats-box { max-width: 850px; margin: 0 auto; }
+        .stats-box h4 { margin-bottom: 15px; font-size: 16px; }
+        .stats-list { list-style: none; line-height: 2; font-size: 15px; }
 
-        /* SEÇÃO FORUM (CINZA) */
-        .forum-section { background-color: #f2f2f2; padding: 60px 0; margin-top: 50px; }
-        .cards-forum { display: flex; gap: 20px; margin-top: 30px; }
-        .card-depoimento { background: #fff; padding: 30px; border-radius: 15px; flex: 1; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .user-meta { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
-        .avatar-small { width: 40px; height: 40px; border-radius: 50%; background: #ddd; }
+        /* Seção MEU FEED (Galeria Horizontal) */
+        .feed-section { background-color: #f2f2f2; padding: 60px 0; margin-top: 40px; text-align: center; }
+        .feed-section h2 { margin-bottom: 40px; font-weight: normal; font-size: 24px; }
+        
+        .feed-container { 
+            display: flex; align-items: center; justify-content: center; gap: 20px; overflow-x: auto; padding: 10px;
+        }
+        .add-map-btn {
+            min-width: 80px; height: 80px; border: 2px solid #000; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 40px; cursor: pointer;
+            background: white;
+        }
+        .feed-item { 
+            min-width: 220px; height: 320px; background: #fff; border-radius: 15px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden;
+        }
+        .feed-item img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* RODAPÉ */
-        footer { padding: 80px 0 40px; border-top: 1px solid #eee; background: #fff; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-        .footer-brand h3 { margin-bottom: 15px; }
-        .footer-col h4 { margin-bottom: 20px; font-size: 16px; }
-        .footer-col li { margin-bottom: 10px; font-size: 14px; color: #666; }
-
-        /* BOTÃO MAIS */
-        .mais-link { display: block; text-align: center; margin: 20px auto; font-weight: bold; font-size: 16px; }
+        /* Rodapé Fiel */
+        footer { padding: 60px 0; border-top: 1px solid #eee; background: #fff; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; }
+        .footer-brand h3 { font-size: 20px; margin-bottom: 10px; }
+        .footer-brand p { font-size: 13px; color: #888; margin-bottom: 20px; }
+        .footer-col h4 { font-size: 14px; margin-bottom: 15px; }
+        .footer-col ul li { font-size: 13px; color: #666; margin-bottom: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -84,95 +95,88 @@
     <header>
         <div class="logo">🧠 EstudaShare</div>
         <nav>
-            <a href="#">Início</a>
-            <a href="#">Explorar</a>
-            <a href="#">Suport</a>
-            <span class="social-nav">📸 🟦 𝕏</span>
-            <a href="perfil.html">Entrar</a>
-            <a href="#" style="font-weight: bold; border: 1px solid #000; padding: 8px 15px; border-radius: 5px;">Cadastrar-se</a>
+            <a href="#">Início</a> <a href="#">Explorar</a> <a href="#">Suport</a>
+            <span class="social-icons">📸 🟦 𝕏</span>
+            <a href="#">Entrar</a> <a href="#" style="font-weight: bold;">Cadastrar-se</a>
         </nav>
     </header>
 
-    <div class="search-section">
-        <input type="text" class="search-bar" placeholder="Pesquisar...">
-    </div>
-
-    <main class="container">
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Compartilhe seu conhecimento.</h1>
-                <p>Faça parte da nossa comunidade e ajude outros estudantes.</p>
-                <a href="upload.html" class="btn-main">compartilhar</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/450x350?text=EstudaShare+Brain" alt="Ilustração">
-            </div>
-        </section>
-
-        <section style="padding: 60px 0; display: flex; justify-content: center;">
-            <div style="background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 20px; display: flex; gap: 30px; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                <img src="https://via.placeholder.com/150" alt="Icon" style="border-radius: 10px;">
-                <div>
-                    <h3>Como funciona?</h3>
-                    <p style="font-size: 14px; color: #555;">Organize seu conhecimento em um mapa mental, com links e arquivos de apoio. Compartilhe e escolha entre acesso livre ou taxa.</p>
-                    <a href="#" style="display:block; margin-top:15px; font-weight:bold;">Mais →</a>
+    <main>
+        <section class="profile-header-bg">
+            <div class="container flex-cards">
+                <div class="card-id">
+                    <div class="avatar-placeholder"></div>
+                    <h2>Olá Thiago "Dev" Silva!</h2>
+                    <span>@Thiago DevS123</span>
+                </div>
+                <div class="card-nav">
+                    <a href="#" class="nav-link">Meu perfil →</a>
+                    <a href="#" class="nav-link">Configurações →</a>
+                    <a href="#" class="nav-link">Minha biblioteca →</a>
+                    <a href="#" class="nav-link">Meus comentários →</a>
+                    <a href="#" class="nav-link">Mensagens →</a>
+                    <a href="#" class="nav-link">Atividade →</a>
                 </div>
             </div>
         </section>
 
-        <h2 class="section-title">Explorar</h2>
-        <div class="grid-mapas">
-            <div class="card-mapa">
-                <img src="https://via.placeholder.com/300x400" alt="Mapa">
-                <h3>Sistema Cardiovascular</h3>
-                <span class="tag livre">Livre</span>
-                <p style="font-size: 13px; color: #666;">Mapa completo sobre artérias e veias...</p>
-                <div class="autor-info">Por: <strong>@anab.moraes</strong><br>Medicina</div>
+        <section class="container sobre-mim-section">
+            <h3>Sobre mim</h3>
+            <p class="academic-info"><strong>Curso:</strong> Engenharia de Computação | <strong>Nível:</strong> 5º Semestre</p>
+            
+            <div class="bio-text">
+                Fala, galera! Sou o Thiago e meu objetivo aqui no EstudaShare é desmistificar a programação. Acredito que ninguém deveria sofrer tentando entender algoritmos em livros de 500 páginas. Meus materiais são focados em visualização lógica: transformo códigos complexos em fluxogramas coloridos e mapas mentais que explicam o 'porquê' de cada função. Se você é daqueles que aprende melhor vendo o desenho do problema do que lendo o código puro, meus resumos de Estrutura de Dados e Sistemas Operacionais foram feitos para você! Minha meta: Chegar a 100 compartilhamentos e ajudar o máximo de calouros possível. Vamos trocar conhecimento!
             </div>
-            <div class="card-mapa">
-                <img src="https://via.placeholder.com/300x400" alt="Mapa">
-                <h3>Estruturas de Dados</h3>
-                <span class="tag preco">R$3,99</span>
-                <p style="font-size: 13px; color: #666;">Foco em Pilhas, Filas e Árvores...</p>
-                <div class="autor-info">Por: <strong>@jujucria</strong><br>Ciências da computação</div>
+
+            <div class="edit-container">
+                <span class="btn-editar">Editar ✎</span>
             </div>
-            <div class="card-mapa">
-                <img src="https://via.placeholder.com/300x400" alt="Mapa">
-                <h3>Processo Penal</h3>
-                <span class="tag preco">R$5,99</span>
-                <p style="font-size: 13px; color: #666;">Guia de caminho para Processo Penal...</p>
-                <div class="autor-info">Por: <strong>@lari.cria</strong><br>Direito/Concurso</div>
+
+            <div class="stats-box">
+                <h4>Estatísticas do Thiago no EstudaShare:</h4>
+                <ul class="stats-list">
+                    <li>• <strong>Materiais Enviados:</strong> 24 📄</li>
+                    <li>• <strong>Downloads Realizados:</strong> 152 📥</li>
+                    <li>• <strong>Avaliação Média:</strong> ⭐⭐⭐⭐⭐ (4.9)</li>
+                    <li>• <strong>Tags Favoritas:</strong> #Python, #Logica, #Hardware, #MapasMentais</li>
+                </ul>
             </div>
-        </div>
-        <a href="#" class="mais-link">Mais →</a>
+        </section>
+
+        <section class="feed-section">
+            <div class="container">
+                <h2>Meu Feed</h2>
+                <div class="feed-container">
+                    <div class="add-map-btn">+</div>
+                    <div class="feed-item"><img src="https://via.placeholder.com/220x320?text=Mapa+1" alt="Mapa"></div>
+                    <div class="feed-item"><img src="https://via.placeholder.com/220x320?text=Mapa+2" alt="Mapa"></div>
+                    <div class="feed-item"><img src="https://via.placeholder.com/220x320?text=Mapa+3" alt="Mapa"></div>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <section class="forum-section">
-        <div class="container">
-            <h2 style="font-size: 32px;">Forum</h2>
-            <p style="color: #666;">Confira o que a comunidade está falando.</p>
-            <div class="cards-forum">
-                <div class="card-depoimento">
-                    <p>"O EstudaShare salvou meu semestre! Interface limpa e materiais de qualidade."</p>
-                    <div class="user-meta">
-                        <div class="avatar-small" style="background: #ffecb3;"></div>
-                        <div style="font-size: 12px;"><strong>Mariana S.</strong><br>Medicina</div>
-                    </div>
-                </div>
-                <div class="card-depoimento">
-                    <p>"O que eu mais gosto é a colaboração. Recebo sugestões de outros alunos."</p>
-                    <div class="user-meta">
-                        <div class="avatar-small" style="background: #e3f2fd;"></div>
-                        <div style="font-size: 12px;"><strong>Beatriz F.</strong><br>Concurseira</div>
-                    </div>
-                </div>
-            </div>
-            <a href="#" class="mais-link" style="margin-top: 30px;">Mais →</a>
-        </div>
-    </section>
 
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
-                <h3>EstudaShare</h3>
-                <p style="font-size: 14px; color: #777;">Sua plataforma de compartilhamento de mapas
+                <h3>Namedly</h3>
+                <p>Descriptive line about what your company does.</p>
+                <div class="social-icons" style="margin:0">📸 🟦 𝕏</div>
+            </div>
+            <div class="footer-col">
+                <h4>Features</h4>
+                <ul><li>Core features</li><li>Pro experience</li><li>Integrations</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn more</h4>
+                <ul><li>Blog</li><li>Case studies</li><li>Customer stories</li><li>Best practices</li></ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul><li>Contact</li><li>Support</li><li>Legal</li></ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
