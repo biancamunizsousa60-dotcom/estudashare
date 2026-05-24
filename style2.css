@@ -1,12 +1,32 @@
 :root {
   
-  --color-primary: #007bff;
-  --color-secondary: #6c757d;
-  --color-bg: #f4f4f9;
-  --color-text: #333;
-  --color-white: #ffffff;
-  --color-border: #ddd;
+/* Cores */
+  --color-primary: #114a9a;      
+  --color-secondary: #f39200;    
+  --color-dark-blue: #1b2447;    
+  --color-accent-green: #8cc63f; 
+  --color-accent-cyan: #00aeef; 
 
+  
+  --color-bg: #f7f9fc;           
+  --color-text: #2d3748;         
+  --color-white: #ffffff;        
+  --color-border: #e2e8f0;
+
+  
+  /* Fonte */
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; /* Bem grosso */
+  color: var(--color-primary);
+}
+
+h1 span {
+  font-weight: 500; /* Mais fino */
+  color: var(--color-secondary);
+}
+  
+  
 
   --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-size-base: 16px;
@@ -39,17 +59,16 @@ section {
 .menu-links {
  position: fixed;
   top: 0;
-  left: 0; /* Mudou de -100% para 0 para fixar no topo */
-  width: 100%; /* Mudou de 250px para 100% para ocupar toda a largura */
-  height: auto; /* Mudou de 100% para auto para a altura se adaptar ao conteúdo */
+  left: 0; 
+  width: 100%; 
+  height: auto; 
   background: var(--color-white);
   z-index: 1000;
-  padding: 15px 20px; /* Ajustado o estofamento para o formato horizontal */
+  padding: 15px 20px; 
 
-  /* Ativa o Flexbox na horizontal */
   display: flex;
-  flex-direction: row; /* Alinha os itens lado a lado */
-  justify-content: center; /* Centraliza os links (opções abaixo) */
+  flex-direction: row; 
+  justify-content: center; 
   gap: 20px;
   
 }
@@ -95,8 +114,8 @@ button:hover {
 }
 
 .card-container {
-border-radius: 12px; /* Arredonda as bordas. Quanto maior o número, mais redondo fica */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Cria a sombra leve ao redor */
+border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
   width: 300px;
   padding: 20px;
   
@@ -105,11 +124,11 @@ border-radius: 12px; /* Arredonda as bordas. Quanto maior o número, mais redond
 }
 
 .cards-wrapper {
-  display: flex; /* Ativa o modo Flexbox */
-  flex-direction: row; /* Alinha os filhos em linha (horizontal) */
-  justify-content: center; /* Centraliza o grupo de containers na tela */
-  gap: 20px; /* Cria um espaço de 20px entre um container e outro */
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  gap: 20px; 
   
-  padding: 20px; /* Um espaço opcional nas bordas da tela */
-  flex-wrap: wrap; /* Muito importante! Se a tela for pequena (celular), os containers pulam para a linha de baixo em vez de esmagar */
+  padding: 20px; 
+  flex-wrap: wrap; 
 }
