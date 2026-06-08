@@ -106,7 +106,7 @@ section {
 /* ==========================================================================
    2. ADICIONE ESTE BLOCO ABAIXO PARA O CELULAR (Telas até 768px)
    ========================================================================== */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   
   /* 1. Mostra o botão hambúrguer no topo da tela do celular */
   .menu-icon-open {
