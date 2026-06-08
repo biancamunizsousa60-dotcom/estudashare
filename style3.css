@@ -1,141 +1,272 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+/* ==========================================
+   1. VARIÁVEIS GLOBAIS (:root)
+   ========================================== */
+:root {
+  /* Cores Principais */
+  --color-primary: #114a9a;      
+  --color-secondary: #f39200;    
+  --color-dark-blue: #1b2447;    
+  --color-accent-green: #8cc63f; 
+  --color-accent-cyan: #00aeef;  
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Estuda Share</title>
-  <link rel="stylesheet" type="text/css" href="style2.css" />
-</head>
+  /* Cores de Interface */
+  --color-bg: #f7f9fc;           
+  --color-text: #2d3748;         
+  --color-white: #ffffff;        
+  --color-border: #e2e8f0;
 
-<body>
-  <section>
-    <nav>
-      <input type="checkbox" id="menu-toggle" hidden>
-      <label for="menu-toggle" class="menu-icon-open">☰</label>
+  /* Fontes e Tamanhos */
+  --font-titles: 'Montserrat', sans-serif;
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 16px;
+  --font-weight-bold: 600;
+}
 
-      <ul class="menu-links">
-        <label for="menu-toggle" class="menu-icon-close">✕</label>
-        <li><a href="index.html">🏠 Início</a></li>
-        <li><a href="Explorar.html">📝 Explorar</a></li>
-        <li><a href="Forum.html">📝 Fórum</a></li>
-        <li><a href="MeuPerfil.html">👤 Meu perfil</a></li>
-        <li><a href="Adm.html">👤 Adm </a></li>
-      </ul>
-    </nav>
-  </section>
+/* ==========================================
+   2. CONFIGURAÇÕES GERAIS E RESET
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <section class="estuda-share">
-    <h1>
-      <div>
-        <img src="logo.jpg" height="200">
-      </div>
-      Estuda Share
-    </h1>
-    <h3>Compartilhe seu conhecimento.</h3>
-    <p>Faça parte da nossa comunidade.</p>
+body {
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 20px;
+}
+
+/* Títulos Importantes */
+h1 {
+  font-family: var(--font-titles);
+  font-weight: 800; /* Bem grosso */
+  color: var(--color-primary);
+}
+
+h1 span {
+  font-weight: 500; /* Mais fino */
+  color: var(--color-secondary);
+}
+
+/* Blocos de conteúdo */
+section {
+  background: var(--color-white);
+  border: 1px solid var(--color-border); 
+  border-radius: 8px;
+  margin-bottom: 25px; 
+  padding: 30px;       
+}
+
+/* ==========================================
+   3. MENU DE NAVEGAÇÃO
+   ========================================== */
+
+/* ==========================================================================
+   1. ESTILO PARA COMPUTADOR (Padrão para telas grandes)
+   ========================================================================== */
+
+.menu-icon-open, 
+.menu-icon-close {
+  display: none; /* Escondidos no PC */
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.menu-links {
+  position: fixed;
+  top: 0;
+  left: 0; 
+  width: 100%; 
+  height: auto; 
+  background: var(--color-white);
+  z-index: 1000;
+  padding: 15px 20px; 
+
+  display: flex;
+  flex-direction: row; 
+  justify-content: center; 
+  gap: 20px;
+}
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links li a {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+
+/* ==========================================================================
+   2. ADICIONE ESTE BLOCO ABAIXO PARA O CELULAR (Telas até 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  
+  /* 1. Mostra o botão hambúrguer no topo da tela do celular */
+  .menu-icon-open {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 999;
+    color: var(--color-text);
+  }
+
+  /* 2. Transforma o menu em uma "gaveta" que some para a esquerda */
+  .menu-links {
+    flex-direction: column;   /* Empilha os links verticalmente */
+    justify-content: flex-start; /* Alinha os links no topo do menu */
+    padding-top: 60px;        /* Dá espaço para o botão 'X' não cobrir o primeiro link */
     
-    <a href="LoginNovoUsuário.html">
-      <button type="button">Cadastrar-se</button>
-    </a>
-    <a href="LoginUsuário.html">
-      <button type="button">Entrar</button>
-    </a>
-  </section>
+    left: -100%;              /* ESCONDE o menu totalmente para a esquerda */
+    width: 100%;              /* Ocupa a largura inteira da tela ao abrir */
+    height: 100vh;            /* Ocupa a altura inteira da tela do celular */
+    transition: left 0.3s ease; /* Efeito suave de deslizar */
+  }
 
-  <section class="como-funciona?">
-    <h3>Como funciona?</h3>
-    <img src="comofunciona.jpg" height="100" alt="Como funciona">
-    <p>
-      Organize seu conhecimento em um mapa mental, com links e arquivos de apoio, imagens, vídeos e instruções.
-      Compartilhe com a comunidade. Você escolhe acesso livre ou por taxa.
-    </p>
-  </section>
+  /* 3. Coloca a borda cinza embaixo dos links só no celular */
+  .menu-links li a {
+    border-bottom: 1px solid var(--color-border);
+    text-align: center;       /* Centraliza o texto do link */
+  }
 
-  <hr>
+  /* 4. Mostra o botão "X" de fechar dentro do menu */
+  .menu-icon-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: var(--color-text);
+  }
 
-  <section>
-    <div class="cards-wrapper">
-      <h3>Explorar</h3>
-      
-      <div class="card-container">
-        <img src="img1.jpg" height="100" alt="Sistema Cardiovascular">
-        <h5>Sistema Cardiovascular</h5>
-        <button type="submit">Livre</button>
-        <p>
-          "Oi, pessoal! Subi meu mapa de Sistema Cardiovascular. Ele é bem visual, com o coração no centro e cores diferentes para artérias e veias. Usei desenhos e poucas palavras porque foco em bater o olho e lembrar do todo. É ótimo para aquela revisão rápida cinco minutos antes da prova!"
-        </p>
-        <h6>Por: @anab.moraes | Medicina</h6>
-      </div>
+  /* 5. A MÁGICA: Quando marcar o checkbox, o menu vai para a posição original (left: 0) */
+  #menu-toggle:checked ~ .menu-links {
+    left: 0;
+  }
+}
 
-      <hr>
+.estuda-share {
+  width: 60%; 
+  text-align: left; 
+}
 
-      <div class="card-container">
-        <img src="img2.jpg" height="100" alt="Estruturas de Dados">
-        <h5>Estruturas de Dados</h5>
-        <button type="submit">R$3,99</button>
-        <p>
-          "Galera, compartilhei um mapa sobre Estruturas de Dados. Ele é bem estruturado, de cima para baixo. Foquei em mostrar as conexões lógicas: por que uma 'Pilha' é diferente de uma 'Fila' e onde cada uma se aplica. Se você tem dificuldade em entender a hierarquia dos conceitos, esse aqui vai te ajudar muito."
-        </p>
-        <h6>Por: @jujucria | Ciências da Computação</h6>
-      </div>
-
-      <hr>
-
-      <div class="card-container">
-        <img src="img3.jpg" height="100" alt="Processo Penal">
-        <h5>Processo Penal</h5>
-        <button type="submit">R$5,99</button>
-        <p>
-          "Acabei de postar o passo a passo do Processo Penal. Não é um resumo comum, é um guia de 'caminho'. Se acontecer X, o processo vai para a direita; se Y, vai para a esquerda. Usei setas para você não se perder na sequência dos fatos. Ideal para quem estuda lógica ou cronogramas!"
-        </p>
-        <h6>Por: @lari.cria | Direito/Concurso</h6>
-      </div>
-
-      <br>
-      <a href="Explorar.html">
-        <button type="button">Ir para Explorar</button>
-      </a>
-    </div>
-  </section>
-
-  <hr>
-
-  <section class="forum-section">
-  <h3>Fórum</h3>
-  <p>Confira o que a comunidade está falando.</p>
-
-  <div class="comentarios-wrapper">
-    <div class="comentario">
-      
-      <h6>Mariana S. | Medicina</h6>
-      <p>"O EstudaShare salvou meu semestre! Encontrei mapas mentais incríveis sobre anatomia que me ajudaram a visualizar o que eu não entendia nos livros. Já comecei a subir meus resumos de patologia também!"</p>
-    </div>
-
-    <div class="comentario">
+@media (max-width: 768px) {
+  .estuda-share {
+    width: 95% 
+    margin: 0 auto 
+    text-align: center 
     
-      <h6>Beatriz F. | Concurseira</h6>
-      <p>"O que eu mais gosto é a colaboração. Às vezes posto um mapa mental e recebo sugestões de melhoria de outros alunos. É como ter um grupo de estudos gigante disponível 24 horas por dia."</p>
-    </div>
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
-    <div class="comentario">
-     
-      <h6>Lucas R. | Ciências da Computação</h6>
-      <p>"Finalmente um lugar centralizado para trocar materiais de qualidade. A interface é limpa e a lógica de compartilhamento por pastas facilita muito na hora de revisar algoritmos complexos antes das provas."</p>
-    </div>
-  </div>
 
-  <div class="forum-botao">
-    <a href="Forum.html">
-      <button type="button">Ver mais</button>
-    </a>
-  </div>
-</section>
 
-  <hr>
 
-  <footer>
-    <p>© 2026 Desenvolvimento Web Hoje. Criado com ❤️ por Bianca Muniz.</p>
-  </footer>
-</body>
+.como-funciona? {
+  width: 60%; 
+  text-align: left; 
+}
 
-</html>
+@media (max-width: 768px) {
+  .como-funciona? {
+    width: 95% 
+    margin: 0 auto 
+    text-align: center 
+    
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* ==========================================
+   4. COMPONENTES (BOTÕES E CARDS)
+   ========================================== */
+button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid transparent;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 10px 5px;
+}
+
+button:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Container de Cards Gerais */
+.card-container {
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+  width: 300px;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+/* Wrapper dos Cards na seção Explorar */
+.cards-wrapper {
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  gap: 20px; 
+  padding: 20px; 
+  flex-wrap: wrap; 
+}
+
+/* ==========================================
+   5. SEÇÃO DO FÓRUM E COMENTÁRIOS
+   ========================================== */
+.forum-section {
+  padding: 40px 20px;
+  text-align: center; 
+}
+
+/* Caixa que segura os comentários lado a lado */
+.comentarios-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;       
+  gap: 20px;             
+  justify-content: center; 
+  margin: 30px 0;        
+}
+
+/* Card de comentário individual */
+.comentario {
+  background-color: var(--color-white); 
+  border-radius: 12px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+  width: 300px;
+  padding: 20px;
+  overflow: hidden;
+  text-align: left; 
+  flex: 0 1 300px; 
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px;
+}
+
+.forum-botao {
+  margin-top: 20px;
+}
