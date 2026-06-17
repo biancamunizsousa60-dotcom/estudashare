@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Estuda Share</title>
+ <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  <section>
+ <nav>
+  <input type="checkbox" id="menu-toggle" hidden>
+  
+  <label for="menu-toggle" class="menu-icon-open">☰</label>
+
+  <ul class="menu-links">
+    <label for="menu-toggle" class="menu-icon-close">✕</label>
+    
+      <li><a href="index.html">🏠 Início</a></li>
+        <li><a href="listagem.html">👤 Listagem</a></li>
+        <li><a href="cadrastar.html">👤 Cadastrar </a></li>
+    </ul>
+</nav>
+  
+  <h1>
+    <div>
+    <img src="logo.jpg" height= "200">
+    </div>
+    Estuda Share
+  </h1>
+    
+    
+    <br><br>
+
+    <hr>
+     <h3>
+ Lista de organograma
+  	</h3>
+    <br>
+    
+    <table border="1">
+  <thead>
+    <tr>
+      <th>Data de inclusão</th>
+      <th>Categoria</th>
+      <th>Título</th>
+	  <th>SubTítulo</th>
+      <th>Texto</th>
+      <th>Arquivos</th>
+      <th>Ações</th>
+    </tr>
+    
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>09/07/2026</td>
+      <td>Graduação</td>
+      
+      <td>O Boom dos "Drive-Comunitários" e a Redução de Custos na Graduação</td>
+
+      <td>Estudantes criam redes de apoio digital para driblar o preço dos livros acadêmicos</td>
+
+      <td>Uma pesquisa informal realizada em grandes centros universitários do país aponta que cerca de 85% dos estudantes recorrem a pastas compartilhadas em nuvens (como Google Drive e OneDrive) para acessar materiais de estudo. Alimentados pelos próprios veteranos, esses repositórios contêm resumos, anotações de aulas, listas de exercícios resolvidas e cronogramas de semestres anteriores. Para os calouros, a prática vai além do ganho de tempo: representa uma economia financeira vital, evitando a compra de livros técnicos e apostilas caras. Os estudantes defendem a prática como uma "cultura de sobrevivência acadêmica" e solidariedade entre as turmas.</td>
+      <td><img><img src="img3.png" height= "50"></img></td>
+     
+      <td>
+        <button>Editar</button>
+        <button>Apagar</button>
+      </td>
+      
+    </tr>
+    <tr>
+      <td>12/05/2026</td>
+      <td>Direito</td>
+      
+       <td>Alerta nas Universidades: Plataformas de Compartilhamento na Mira da Lei de Direitos Autorais</td>
+
+      <td>Uso de sites de compartilhamento de arquivos gera debates sobre propriedade intelectual de professores</td>
+
+       <td>O crescimento de plataformas comerciais onde universitários trocam materiais de estudo por pontos ou assinaturas tem acendido o alerta jurídico nas instituições de ensino. Muitos docentes têm descoberto PDFs de suas apresentações de slides, apostilas autorais e até questões de provas exclusivas sendo comercializados ou distribuídos sem autorização. Especialistas alertam que, embora o compartilhamento de anotações próprias do aluno seja legal, a distribuição de cópias de livros ou materiais criados pelos professores fere a Lei de Direitos Autorais (Lei 9.610/98). Universidades já começam a emitir cartilhas de orientação para conscientizar os alunos sobre os limites éticos e legais do compartilhamento digital.</td>
+      <td><img><img src="img2.png" height= "50"></img></td>
+     
+      <td>
+        <button>Editar</button>
+        <button>Apagar</button>
+      </td>
+       </tr>
+  
+      
+    </tr>
+    </tbody>
+</table>
+    
+  
+    
+   
+    
+  </section>
+</body>
+
+ <p> &nbsp </p> <hr>
+    <footer>
+      © 2026 Desenvolvimento Web Hoje.
+Criado com ❤️ por Bianca Muniz.
+      </footer>
+
+</html>
